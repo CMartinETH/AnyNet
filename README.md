@@ -1,3 +1,10 @@
+# This is a fork of the Anynet Network
+This fork is used to train the network with our own dataset and the network reader is extended with hdf5 capabilities. This helps, if the network is trained on a server where the amount of files is restricted. 
+
+Furthermore, will the network be extended / altered to be running at higher FPS. 
+
+
+
 # Anytime Stereo Image Depth Estimation on Mobile Devices
 This repository contains the code (in PyTorch) for AnyNet introduced in the following paper
 
