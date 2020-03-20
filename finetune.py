@@ -11,6 +11,7 @@ from dataloader import KITTILoader as DA
 import utils.logger as logger
 import torch.backends.cudnn as cudnn
 
+import utils.store_output as store
 import models.anynet
 
 parser = argparse.ArgumentParser(description='Anynet fintune on KITTI')
@@ -47,7 +48,9 @@ parser.add_argument('--pretrained', type=str, default='results/pretrained_anynet
                     help='pretrained model path')
 parser.add_argument('--split_file', type=str, default=None)
 parser.add_argument('--evaluate', action='store_true')
-
+parser.add_argument('--inference', type=bool, default=False, help='Store result of a stereo pair output.')
+parser.add_argument('--save_inference', type=str, default='results/inference/', help='path where to store the output '
+                                                                                    'of the inference step')
 
 args = parser.parse_args()
 
@@ -76,6 +79,8 @@ def main():
 
     if not os.path.isdir(args.save_path):
         os.makedirs(args.save_path)
+    if not os.path.isdir(args.save_inference):
+        os.makedirs(args.save_inference)
     for key, value in sorted(vars(args).items()):
         log.info(str(key) + ': ' + str(value))
 
@@ -196,6 +201,9 @@ def test(dataloader, model, log):
             for x in range(stages):
                 output = torch.squeeze(outputs[x], 1)
                 D1s[x].update(error_estimating(output, disp_L).item())
+
+                if args.inference:
+                    store.store_image(args.save_inference, output)
 
         info_str = '\t'.join(['Stage {} = {:.4f}({:.4f})'.format(x, D1s[x].val, D1s[x].avg) for x in range(stages)])
 
