@@ -3,11 +3,14 @@ This module is intended to be used to test the inference of the network and stor
 """
 import os
 import PIL
+import torch.transforms as tf
 
 
 def store_image(location, image):
     name = filename_check("{}{}".format(location, "result_disp_"), ".png")
-    image.save(name)  # write to png
+    img = tf.ToPILImage()(image)
+
+    img.save(name)  # write to png
 
 
 def filename_check(fullname, filetype):
