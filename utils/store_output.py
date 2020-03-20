@@ -8,7 +8,7 @@ import torchvision.transforms as tf
 
 
 def store_image(location, image):
-    cpu_img = image.unsqueeze(0).cuda().cpu().clone()
+    cpu_img = image.unsqueeze(0).cuda().detach().cpu()
     #cpu_img1 = image.cuda().cpu()
 
     name = filename_check("{}{}".format(location, "result_disp_"), ".png")
