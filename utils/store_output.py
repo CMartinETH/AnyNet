@@ -7,7 +7,9 @@ import torchvision.transforms as tf
 
 
 def store_image(location, image):
-    cpu_img = image.cpu()
+    # cpu_img = unsqueeze(0)image.cpu()
+    cpu_img = (image.unsqueeze(0).cuda()).deatch().cpu()
+
     name = filename_check("{}{}".format(location, "result_disp_"), ".png")
     img = tf.ToPILImage()(cpu_img)
 
