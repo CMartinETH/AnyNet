@@ -9,12 +9,12 @@ import torchvision.transforms as tf
 
 def store_image(location, image):
     # cpu_img = unsqueeze(0)image.cpu()
-    cpu_img1 = image.cuda().detach().cpu()
+    #cpu_img1 = image.cuda().detach().cpu()
     cpu_img2 = image.cuda().detach().cpu().numpy()
 
     name = filename_check("{}{}".format(location, "result_disp_"), ".png")
-    img = tf.ToPILImage()(cpu_img1)
-    img.save(name)  # write to png
+    #img = tf.ToPILImage()(cpu_img1)
+    #img.save(name)  # write to png
 
     img_1 = Image.fromarray(np.uint16(cpu_img2))
     img_1.save(name)
