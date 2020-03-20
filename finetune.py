@@ -203,7 +203,7 @@ def test(dataloader, model, log):
                 D1s[x].update(error_estimating(output, disp_L).item())
 
                 if args.inference:
-                    store.store_image(args.save_inference, output)
+                    store.store_image(args.save_inference, outputs[x])
 
         info_str = '\t'.join(['Stage {} = {:.4f}({:.4f})'.format(x, D1s[x].val, D1s[x].avg) for x in range(stages)])
 
