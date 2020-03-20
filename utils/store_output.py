@@ -3,7 +3,7 @@ This module is intended to be used to test the inference of the network and stor
 """
 import os
 import PIL
-import torch.transforms as tf
+import torchvision.transforms as tf
 
 
 def store_image(location, image):
