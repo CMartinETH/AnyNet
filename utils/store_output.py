@@ -8,7 +8,7 @@ import torchvision.transforms as tf
 
 
 def store_image(location, image):
-    cpu_img = image.unsqueeze(0).cpu().numpy()
+    cpu_img = image.squeeze.cpu().numpy()
     print(cpu_img.shape)
     #cpu_img1 = image.cuda().cpu()
 
@@ -16,7 +16,7 @@ def store_image(location, image):
     # img = tf.ToPILImage()(cpu_img)
     # img.save(name)  # write to png
 
-    img_1 = Image.fromarray(np.uint8(cpu_img))
+    img_1 = Image.fromarray(cpu_img)
     img_1.save(name)
 
 
