@@ -10,16 +10,17 @@ import torchvision.transforms as tf
 
 def store_image(location, image):
     gpu_img = torch.squeeze(image)
-    cpu_img = gpu_img.cpu().numpy()
-    print(cpu_img.shape)
-    #cpu_img1 = image.cuda().cpu()
+    # print(gpu_img.size(), "Size of Tensor")
+    cpu_img = gpu_img.cpu()
+    print(cpu_img.size(), "Size of Tensor")
 
-    name = filename_check("{}{}".format(location, "result_disp_"), ".png")
-    # img = tf.ToPILImage()(cpu_img)
-    # img.save(name)  # write to png
 
-    img_1 = Image.fromarray(cpu_img)
-    img_1.save(name)
+    name = filename_check("{}{}{}".format(location,"/", "result_disp_"), ".png")
+    img = tf.ToPILImage()(cpu_{}img)
+    img.save(name)  # write to png
+
+    #img_1 = Image.fromarray(cpu_img)
+    #img_1.save(name)
 
 
 def filename_check(fullname, filetype):
