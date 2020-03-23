@@ -16,7 +16,8 @@ def store_image(location, image):
 
 
     name = filename_check("{}{}{}".format(location,"/", "result_disp_"), ".png")
-    img = tf.ToPILImage()(cpu_{}img)
+    img = tf.ToPILImage()(cpu_img)
+    img = img.convert("RGB")
     img.save(name)  # write to png
 
     #img_1 = Image.fromarray(cpu_img)
