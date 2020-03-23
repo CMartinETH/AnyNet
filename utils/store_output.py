@@ -3,12 +3,13 @@ This module is intended to be used to test the inference of the network and stor
 """
 import os
 import numpy as np
+import torch
 from PIL import Image
 import torchvision.transforms as tf
 
 
 def store_image(location, image):
-    cpu_img = image.squeeze.cpu().numpy()
+    cpu_img = torch.squeeze(image).cpu().numpy()
     print(cpu_img.shape)
     #cpu_img1 = image.cuda().cpu()
 
