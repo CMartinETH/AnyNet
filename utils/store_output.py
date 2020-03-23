@@ -9,7 +9,8 @@ import torchvision.transforms as tf
 
 
 def store_image(location, image):
-    cpu_img = torch.squeeze(image).numpy()
+    gpu_img = torch.squeeze(image)
+    cpu_img = gpu_img.cpu().numpy()
     print(cpu_img.shape)
     #cpu_img1 = image.cuda().cpu()
 
