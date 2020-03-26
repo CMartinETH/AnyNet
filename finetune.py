@@ -201,7 +201,6 @@ def test(dataloader, model, log):
             for x in range(stages):
                 output = torch.squeeze(outputs[x], 1)
                 D1s[x].update(error_estimating(output, disp_L).item())
-                print(output.size(),"Direct output size")
                 if args.inference:
                     store.store_image(args.save_inference, output)
 

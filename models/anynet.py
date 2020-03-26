@@ -126,7 +126,6 @@ class AnyNet(nn.Module):
     def forward(self, left, right):
 
         img_size = left.size()
-
         feats_l = self.feature_extraction(left)
         feats_r = self.feature_extraction(right)
         pred = []
@@ -147,6 +146,7 @@ class AnyNet(nn.Module):
                 pred_low_res = disparityregression2(0, self.maxdisplist[0])(F.softmax(-cost, dim=1))
                 pred_low_res = pred_low_res * img_size[2] / pred_low_res.size(2)
                 disp_up = F.upsample(pred_low_res, (img_size[2], img_size[3]), mode='bilinear')
+                print(disp_up.size(),"Size of disparity within model")
                 pred.append(disp_up)
             else:
                 pred_low_res = disparityregression2(-self.maxdisplist[scale]+1, self.maxdisplist[scale], stride=1)(F.softmax(-cost, dim=1))
