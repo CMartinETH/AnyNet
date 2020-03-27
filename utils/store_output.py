@@ -4,18 +4,15 @@ This module is intended to be used to test the inference of the network and stor
 import os
 import numpy as np
 
-import torch
-from PIL import Image
-import torchvision.transforms as tf
 import cv2
 
 
 def store_image(location, image):
     for i in range(image.size()[0]):
         img_cpu = np.asarray(image.cpu())
-        img_save = np.clip(img_cpu[i,:,:], 0, 256)
+        img_save = np.clip(img_cpu[i, :, :], 0, 256)
         img_save = (img_save * 256.0).astype(np.uint16)
-        name = filename_check("{}{}{}".format(location,"/", "result_disp_"), ".png")
+        name = filename_check("{}{}{}".format(location, "/", "result_disp_"), ".png")
         cv2.imwrite(name, img_save)
 
 

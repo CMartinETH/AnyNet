@@ -9,9 +9,10 @@ import torch.nn.functional as F
 import time
 from dataloader import KITTILoader as DA
 import utils.logger as logger
+import utils.store_output as store
+import utils.training_plot
 import torch.backends.cudnn as cudnn
 
-import utils.store_output as store
 import models.anynet
 
 parser = argparse.ArgumentParser(description='Anynet fintune on KITTI')
@@ -51,6 +52,9 @@ parser.add_argument('--evaluate', action='store_true')
 parser.add_argument('--inference', type=bool, default=False, help='Store result of a stereo pair output.')
 parser.add_argument('--save_inference', type=str, default='results/inference/', help='path where to store the output '
                                                                                     'of the inference step')
+parser.add_argument('--save_plot_training', type=str, default='results/plots/', help='path to store training plot')
+parser.add_argument('--save_csv_training', type=str, default='results/plots/training.csv', help='path to store csv'
+                                                                                    'of training')
 
 args = parser.parse_args()
 
@@ -81,6 +85,11 @@ def main():
         os.makedirs(args.save_path)
     if not os.path.isdir(args.save_inference):
         os.makedirs(args.save_inference)
+    if not os.path.isdir(args.save_plot_training):
+        os.makedirs(args.save_plot_training)
+    if not os.path.isdir(args.save_csv_training):
+        os.makedirs(args.save_csv_training)
+
     for key, value in sorted(vars(args).items()):
         log.info(str(key) + ': ' + str(value))
 
@@ -174,6 +183,7 @@ def train(dataloader, model, optimizer, log, epoch=0):
             losses[idx].update(loss[idx].item())
 
         if batch_idx % args.print_freq:
+            # print(num_out, "Amount of points in num_out")
             info_str = ['Stage {} = {:.2f}({:.2f})'.format(x, losses[x].val, losses[x].avg) for x in range(num_out)]
             info_str = '\t'.join(info_str)
 
@@ -181,6 +191,10 @@ def train(dataloader, model, optimizer, log, epoch=0):
                 epoch, batch_idx, length_loader, info_str))
     info_str = '\t'.join(['Stage {} = {:.2f}'.format(x, losses[x].avg) for x in range(stages)])
     log.info('Average train loss = ' + info_str)
+
+    # write the values to file and plot
+    write_row = [losses[0].avg, losses[1].avg, losses[2].avg, losses[3].avg]
+    utils.training_plot.csv_writer_plotter(args.save_csv_training, args.save_plot_training, write_row, epoch, True)
 
 
 def test(dataloader, model, log):
@@ -201,6 +215,7 @@ def test(dataloader, model, log):
             for x in range(stages):
                 output = torch.squeeze(outputs[x], 1)
                 D1s[x].update(error_estimating(output, disp_L).item())
+
                 if args.inference:
                     store.store_image(args.save_inference, output)
 
@@ -211,6 +226,12 @@ def test(dataloader, model, log):
 
     info_str = ', '.join(['Stage {}={:.4f}'.format(x, D1s[x].avg) for x in range(stages)])
     log.info('Average test 3-Pixel Error = ' + info_str)
+
+    # write the values to file and plot
+    write_row = [D1s[0].avg, D1s[1].avg, D1s[2].avg, D1s[3].avg]
+    # 1 is a random number here, as it is the same as for the training step
+    utils.training_plot.csv_writer_plotter(args.save_csv_training, args.save_plot_training, write_row, 1, False)
+
 
 
 def error_estimating(disp, ground_truth, maxdisp=192):
