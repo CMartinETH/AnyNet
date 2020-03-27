@@ -1,0 +1,84 @@
+Sender: LSF System <lsfadmin@lo-s4-033>
+Subject: Job 5477525: <python finetune.py --maxdisp 233 --with_spn --datapath /cluster/home/martinc/Datasets/Kitti2015/training/ --save_path /cluster/home/martinc/git/AnyNet/results/ --datatype 2015 --pretrained /cluster/home/martinc/git/AnyNet/checkpoints/AnyNetCheckpoints/finetune_anynet/checkpoint.tar --evaluate --inference True --save_inference /cluster/home/martinc/git/AnyNet/results/inference> in cluster <leonhard> Done
+
+Job <python finetune.py --maxdisp 233 --with_spn --datapath /cluster/home/martinc/Datasets/Kitti2015/training/ --save_path /cluster/home/martinc/git/AnyNet/results/ --datatype 2015 --pretrained /cluster/home/martinc/git/AnyNet/checkpoints/AnyNetCheckpoints/finetune_anynet/checkpoint.tar --evaluate --inference True --save_inference /cluster/home/martinc/git/AnyNet/results/inference> was submitted from host <lo-login-02> by user <martinc> in cluster <leonhard> at Fri Mar 27 09:05:43 2020
+Job was executed on host(s) <2*lo-s4-033>, in queue <gpu.4h>, as user <martinc> in cluster <leonhard> at Fri Mar 27 09:06:09 2020
+</cluster/home/martinc> was used as the home directory.
+</cluster/home/martinc/git/AnyNet> was used as the working directory.
+Started at Fri Mar 27 09:06:09 2020
+Terminated at Fri Mar 27 09:06:23 2020
+Results reported at Fri Mar 27 09:06:23 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python finetune.py --maxdisp 233 --with_spn --datapath /cluster/home/martinc/Datasets/Kitti2015/training/ --save_path /cluster/home/martinc/git/AnyNet/results/ --datatype 2015 --pretrained /cluster/home/martinc/git/AnyNet/checkpoints/AnyNetCheckpoints/finetune_anynet/checkpoint.tar --evaluate --inference True --save_inference /cluster/home/martinc/git/AnyNet/results/inference
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   13.52 sec.
+    Max Memory :                                 2711 MB
+    Average Memory :                             498.00 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               1385.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                7
+    Run time :                                   39 sec.
+    Turnaround time :                            40 sec.
+
+The output (if any) follows:
+
+[2020-03-27 09:06:13 KITTIloader2015.py:33] INFO     [ 30 191  14 141 124  34  81  21   4  48 132 147  50  89  60 175   0  46
+ 177   1  62 137  57   8 176 130 155  82   3  66 149 180 111 105  67  80
+  56  96  98 172]
+[2020-03-27 09:06:13 finetune.py:85] INFO     channels_3d: 4
+[2020-03-27 09:06:13 finetune.py:85] INFO     datapath: /cluster/home/martinc/Datasets/Kitti2015/training/
+[2020-03-27 09:06:13 finetune.py:85] INFO     datatype: 2015
+[2020-03-27 09:06:13 finetune.py:85] INFO     epochs: 300
+[2020-03-27 09:06:13 finetune.py:85] INFO     evaluate: True
+[2020-03-27 09:06:13 finetune.py:85] INFO     growth_rate: [4, 1, 1]
+[2020-03-27 09:06:13 finetune.py:85] INFO     inference: True
+[2020-03-27 09:06:13 finetune.py:85] INFO     init_channels: 1
+[2020-03-27 09:06:13 finetune.py:85] INFO     layers_3d: 4
+[2020-03-27 09:06:13 finetune.py:85] INFO     loss_weights: [0.25, 0.5, 1.0, 1.0]
+[2020-03-27 09:06:13 finetune.py:85] INFO     lr: 0.0005
+[2020-03-27 09:06:13 finetune.py:85] INFO     max_disparity: 192
+[2020-03-27 09:06:13 finetune.py:85] INFO     maxdisp: 233
+[2020-03-27 09:06:13 finetune.py:85] INFO     maxdisplist: [12, 3, 3]
+[2020-03-27 09:06:13 finetune.py:85] INFO     nblocks: 2
+[2020-03-27 09:06:13 finetune.py:85] INFO     pretrained: /cluster/home/martinc/git/AnyNet/checkpoints/AnyNetCheckpoints/finetune_anynet/checkpoint.tar
+[2020-03-27 09:06:13 finetune.py:85] INFO     print_freq: 5
+[2020-03-27 09:06:13 finetune.py:85] INFO     resume: None
+[2020-03-27 09:06:13 finetune.py:85] INFO     save_inference: /cluster/home/martinc/git/AnyNet/results/inference
+[2020-03-27 09:06:13 finetune.py:85] INFO     save_path: /cluster/home/martinc/git/AnyNet/results/
+[2020-03-27 09:06:13 finetune.py:85] INFO     split_file: None
+[2020-03-27 09:06:13 finetune.py:85] INFO     spn_init_channels: 8
+[2020-03-27 09:06:13 finetune.py:85] INFO     start_epoch_for_spn: 121
+[2020-03-27 09:06:13 finetune.py:85] INFO     test_bsize: 8
+[2020-03-27 09:06:13 finetune.py:85] INFO     train_bsize: 6
+[2020-03-27 09:06:13 finetune.py:85] INFO     with_spn: True
+[2020-03-27 09:06:16 finetune.py:90] INFO     Number of model parameters: 43269
+[2020-03-27 09:06:16 finetune.py:97] INFO     => loaded pretrained model '/cluster/home/martinc/git/AnyNet/checkpoints/AnyNetCheckpoints/finetune_anynet/checkpoint.tar'
+[2020-03-27 09:06:16 finetune.py:114] INFO     Not Resume
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/nn/functional.py:2404: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+  warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/nn/functional.py:2494: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/nn/functional.py:2693: UserWarning: Default grid_sample and affine_grid behavior will be changed to align_corners=False from 1.4.0. See the documentation of grid_sample for details.
+  warnings.warn("Default grid_sample and affine_grid behavior will be changed "
+[2020-03-27 09:06:19 finetune.py:210] INFO     [0/5] Stage 0 = 0.5103(0.5103)	Stage 1 = 0.2804(0.2804)	Stage 2 = 0.2122(0.2122)	Stage 3 = 0.2153(0.2153)
+[2020-03-27 09:06:19 finetune.py:210] INFO     [1/5] Stage 0 = 0.5495(0.5299)	Stage 1 = 0.3242(0.3023)	Stage 2 = 0.2541(0.2332)	Stage 3 = 0.2501(0.2327)
+[2020-03-27 09:06:20 finetune.py:210] INFO     [2/5] Stage 0 = 0.5647(0.5415)	Stage 1 = 0.3221(0.3089)	Stage 2 = 0.2526(0.2396)	Stage 3 = 0.2444(0.2366)
+[2020-03-27 09:06:21 finetune.py:210] INFO     [3/5] Stage 0 = 0.5357(0.5400)	Stage 1 = 0.2852(0.3030)	Stage 2 = 0.2291(0.2370)	Stage 3 = 0.2286(0.2346)
+[2020-03-27 09:06:22 finetune.py:210] INFO     [4/5] Stage 0 = 0.5064(0.5333)	Stage 1 = 0.2429(0.2910)	Stage 2 = 0.1716(0.2239)	Stage 3 = 0.1688(0.2214)
+[2020-03-27 09:06:22 finetune.py:213] INFO     Average test 3-Pixel Error = Stage 0=0.5333, Stage 1=0.2910, Stage 2=0.2239, Stage 3=0.2214
+torch.Size([8, 1, 368, 1232]) Size of disparity within model
+torch.Size([8, 1, 368, 1232]) Size of disparity within model
+torch.Size([8, 1, 368, 1232]) Size of disparity within model
+torch.Size([8, 1, 368, 1232]) Size of disparity within model
+torch.Size([8, 1, 368, 1232]) Size of disparity within model

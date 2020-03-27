@@ -1,0 +1,318 @@
+Sender: LSF System <lsfadmin@lo-s4-024>
+Subject: Job 5417190: <./make.sh> in cluster <leonhard> Done
+
+Job <./make.sh> was submitted from host <lo-login-02> by user <martinc> in cluster <leonhard> at Thu Mar 26 12:46:26 2020
+Job was executed on host(s) <2*lo-s4-024>, in queue <gpu.4h>, as user <martinc> in cluster <leonhard> at Thu Mar 26 12:46:29 2020
+</cluster/home/martinc> was used as the home directory.
+</cluster/home/martinc/git/AnyNet/models/spn_t1> was used as the working directory.
+Started at Thu Mar 26 12:46:29 2020
+Terminated at Thu Mar 26 12:46:58 2020
+Results reported at Thu Mar 26 12:46:58 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./make.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   22.25 sec.
+    Max Memory :                                 1243 MB
+    Average Memory :                             210.00 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               2853.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   57 sec.
+    Turnaround time :                            32 sec.
+
+The output (if any) follows:
+
+running clean
+running build
+running build_ext
+building 'gaterecurrent2dnoind_cuda' extension
+creating build
+creating build/temp.linux-x86_64-3.7
+creating build/temp.linux-x86_64-3.7/src
+/cluster/spack/apps/linux-centos7-x86_64/gcc-4.8.5/gcc-6.3.0-d7fey5ouwb3cw26w5zqafqcse7q3fs6d/bin/gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -ftree-vectorize -march=core-avx2 -mavx2 -ftree-vectorize -march=core-avx2 -mavx2 -fPIC -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/TH -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/THC -I/cluster/apps/gcc-6.3.0/cuda-10.1.243-n6qg6z5js3zfnhp2cfg5yjccej636czm/include -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/include/python3.7m -c src/gaterecurrent2dnoind_cuda.cpp -o build/temp.linux-x86_64-3.7/src/gaterecurrent2dnoind_cuda.o -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=gaterecurrent2dnoind_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++11
+src/gaterecurrent2dnoind_cuda.cpp: In function ‘int gaterecurrent2dnoind_forward_cuda(int, int, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor)’:
+src/gaterecurrent2dnoind_cuda.cpp:10:33: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * X_data = X.data<float>();
+                                 ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:11:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G1_data = G1.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:12:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G2_data = G2.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:13:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G3_data = G3.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:14:38: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * H_data = output.data<float>();
+                                      ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp: In function ‘int gaterecurrent2dnoind_backward_cuda(int, int, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor)’:
+src/gaterecurrent2dnoind_cuda.cpp:47:33: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * X_data = X.data<float>();
+                                 ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:48:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G1_data = G1.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:49:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G2_data = G2.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:50:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G3_data = G3.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:51:35: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * H_data = top.data<float>();
+                                   ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:53:40: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * H_diff = top_grad.data<float>();
+                                        ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:55:38: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * X_diff = X_grad.data<float>();
+                                      ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:56:40: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G1_diff = G1_grad.data<float>();
+                                        ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:57:40: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G2_diff = G2_grad.data<float>();
+                                        ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+src/gaterecurrent2dnoind_cuda.cpp:58:40: warning: ‘T* at::Tensor::data() const [with T = float]’ is deprecated [-Wdeprecated-declarations]
+  float * G3_diff = G3_grad.data<float>();
+                                        ^
+In file included from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Tensor.h:11:0,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/Context.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/ATen.h:5,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include/torch/all.h:4,
+                 from /cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/extension.h:4,
+                 from src/gaterecurrent2dnoind_cuda.cpp:4:
+/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/ATen/core/TensorBody.h:303:7: note: declared here
+   T * data() const {
+       ^~~~
+/cluster/apps/gcc-6.3.0/cuda-10.1.243-n6qg6z5js3zfnhp2cfg5yjccej636czm/bin/nvcc -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/torch/csrc/api/include -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/TH -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64/python3.7/site-packages/torch/include/THC -I/cluster/apps/gcc-6.3.0/cuda-10.1.243-n6qg6z5js3zfnhp2cfg5yjccej636czm/include -I/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/include/python3.7m -c src/gaterecurrent2dnoind_kernel.cu -o build/temp.linux-x86_64-3.7/src/gaterecurrent2dnoind_kernel.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=gaterecurrent2dnoind_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_61,code=sm_61 -std=c++11
+creating build/lib.linux-x86_64-3.7
+/cluster/spack/apps/linux-centos7-x86_64/gcc-4.8.5/gcc-6.3.0-d7fey5ouwb3cw26w5zqafqcse7q3fs6d/bin/g++ -pthread -shared build/temp.linux-x86_64-3.7/src/gaterecurrent2dnoind_cuda.o build/temp.linux-x86_64-3.7/src/gaterecurrent2dnoind_kernel.o -L/cluster/apps/gcc-6.3.0/cuda-10.1.243-n6qg6z5js3zfnhp2cfg5yjccej636czm/lib64 -L/cluster/apps/python/3.7.4_gpu_gcc630/x86_64/lib64 -lcudart -lpython3.7m -o build/lib.linux-x86_64-3.7/gaterecurrent2dnoind_cuda.cpython-37m-x86_64-linux-gnu.so
