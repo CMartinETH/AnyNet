@@ -41,7 +41,11 @@ class Timing:
         plt.xlabel("Total time", fontsize=16)
         plt.ylabel("Time [s]", fontsize=16)
         plt.title("Loading and processing time [per Batch] Anynet", fontsize=18)
-        plt.legend(loc='upper right')
+
+        # to avoid duplicate legends
+        handles, labels = plt.gca().get_legend_handles_labels()
+        by_label = dict(zip(labels, handles))
+        plt.legend(by_label.values(), by_label.keys(), loc='upper right')
         plt.savefig(("{}{}{}").format(self.path_plot, "/", "timing_plot.png"))
 
 
