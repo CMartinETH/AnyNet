@@ -13,7 +13,6 @@ def csv_writer_plotter(path_csv_train, filepath_plot, input_row, epoch, train=Tr
     file_exists = os.path.isfile(path_csv_train)
     if train:
         if not file_exists:
-            print("This")
             df = {'st0_train': [input_row[0]], 'st1_train': [input_row[1]], 'st2_train': [input_row[2]],
                   "st3_train": [input_row[3]], "epoch": [epoch]}
             df = pd.DataFrame(df, columns=['st0_train', 'st1_train', 'st2_train', "st3_train", "st0_val", "st1_val",
@@ -21,7 +20,6 @@ def csv_writer_plotter(path_csv_train, filepath_plot, input_row, epoch, train=Tr
             df.to_csv(path_csv_train, index=False, header=True)
 
         if file_exists:
-            print("i am doing this here")
             df2 = {'st0_train': [input_row[0]], 'st1_train': [input_row[1]], 'st2_train': [input_row[2]],
                   "st3_train": [input_row[3]], "epoch": [epoch]}
             df2 = pd.DataFrame(df2, columns=['st0_train', 'st1_train', 'st2_train', "st3_train", "st0_val", "st1_val",
@@ -32,13 +30,11 @@ def csv_writer_plotter(path_csv_train, filepath_plot, input_row, epoch, train=Tr
 
         df = pd.read_csv(path_csv_train)
         last_val = len(df.st0_val)
-        print("lenght of df", last_val)
         df.loc[(last_val-1), 'st0_val'] = input_row[0]
         df.loc[(last_val-1), 'st1_val'] = input_row[1]
         df.loc[(last_val-1), 'st2_val'] = input_row[2]
         df.loc[(last_val-1), 'st3_val'] = input_row[3]
         df.to_csv(path_csv_train, index=False)
-        print("and this")
 
         loss_plotter(filepath_plot, path_csv_train)
 
@@ -60,11 +56,3 @@ def loss_plotter(filepath_plot, filepath_csv):
     plt.ylabel("Loss", fontsize=16)
     plt.title("Test and Validation Loss Training Anynet", fontsize=20)
     plt.savefig(("{}{}{}").format(filepath_plot, "/", "training_plot.png"))
-
-
-# if __name__ == '__main__':
-#     row = [1,2,3,4]
-#     row1 =[5,6,7,8]
-#     row2 =[9,10,11,12]
-#     epoch = 2
-#     csv_writer_plotter(path_csv_train, filepath_plot, row, epoch, False)

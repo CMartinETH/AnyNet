@@ -11,6 +11,7 @@ from dataloader import KITTILoader as DA
 import utils.logger as logger
 import utils.store_output as store
 import utils.training_plot
+import evaluation.timing_class
 import torch.backends.cudnn as cudnn
 
 import models.anynet
@@ -55,6 +56,12 @@ parser.add_argument('--save_inference', type=str, default='results/inference/', 
 parser.add_argument('--save_plot_training', type=str, default='results/plots/', help='path to store training plot')
 parser.add_argument('--save_csv_training', type=str, default='results/plots/training.csv', help='path to store csv'
                                                                                     'of training')
+parser.add_argument('--timeit', type=bool, default=False)
+parser.add_argument('--save_plot_timing', type=str, default='results/plots/', help='path to store timing plot')
+parser.add_argument('--save_csv_timing', type=str, default='results/plots/timing.csv', help='path to store csv'
+                                                                                    'of timing')
+
+
 
 args = parser.parse_args()
 
@@ -204,20 +211,32 @@ def test(dataloader, model, log):
     length_loader = len(dataloader)
 
     model.eval()
-
+    time_zero = time.perf_counter()
     for batch_idx, (imgL, imgR, disp_L) in enumerate(dataloader):
+        init_loader = time.perf_counter()
         imgL = imgL.float().cuda()
         imgR = imgR.float().cuda()
         disp_L = disp_L.float().cuda()
+        fini_loader = time.perf_counter() - init_loader
 
         with torch.no_grad():
+            init_process = time.perf_counter()
             outputs = model(imgL, imgR)
+            fini_process = time.perf_counter() - init_process
             for x in range(stages):
                 output = torch.squeeze(outputs[x], 1)
                 D1s[x].update(error_estimating(output, disp_L).item())
 
                 if args.inference:
                     store.store_image(args.save_inference, output)
+
+                if args.timeit:
+                    time_now = time.perf_counter() - time_zero
+                    evaluate_class = evaluation.timing_class.Timing(fini_process, fini_loader, args.test_bsize,
+                                                                    args.save_plot_timing, args.save_csv_timing,
+                                                                    time_now)
+                    evaluate_class.write_time()
+        evaluate_class.plot_time()
 
         info_str = '\t'.join(['Stage {} = {:.4f}({:.4f})'.format(x, D1s[x].val, D1s[x].avg) for x in range(stages)])
 
